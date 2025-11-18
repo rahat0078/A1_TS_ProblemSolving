@@ -11,11 +11,27 @@ const formatValue = (value: string | number | boolean): string | number | boolea
 }
 
 const getLength = (input: string | []): number => {
-    if(typeof input === "string") {
+    if (typeof input === "string") {
         const totalChar = input.length;
         return totalChar;
-    } else if (Array.isArray(input)){
+    } else if (Array.isArray(input)) {
         return input.length
-    } 
+    }
     return input
 }
+
+
+interface ProductInfo {
+    title: string;
+    rating: number;
+}
+
+const filterByRating = (items: ProductInfo[]): ProductInfo[] => {
+    const result = items.filter(i => {
+        if (i.rating < 0 || i.rating > 5) {
+            return 'Rating not valid'
+        }
+        return i.rating >= 4;
+    })
+    return result
+};
