@@ -20,6 +20,19 @@ const getLength = (input: string | []): number => {
     return input
 }
 
+class Person {
+    name: string;
+    age: number;
+    constructor(name: string, age: number) {
+        this.name = name;
+        this.age = age;
+    }
+
+    getDetails(): string {
+        return `Name: ${this.name}, Age: ${this.age}`;
+    }
+}
+
 
 interface ProductInfo {
     title: string;
@@ -35,3 +48,13 @@ const filterByRating = (items: ProductInfo[]): ProductInfo[] => {
     })
     return result
 };
+
+interface User {
+    id: number;
+    name: string;
+    email: string;
+    isActive: boolean;
+}
+const filterActiveUsers = (users: User[]): User[] => {
+    return users.filter(user => user.isActive);
+}
